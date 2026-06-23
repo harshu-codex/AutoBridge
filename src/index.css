@@ -1,0 +1,285 @@
+/* ─────────────────────────────────────────────
+   Global Styles - AutoBridge
+   Simple, clean, beginner-friendly CSS
+   Uses system fonts - no import needed!
+───────────────────────────────────────────── */
+
+/* Reset - remove default browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*loader Styles */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  z-index: 9999;
+  overflow: hidden;
+}
+link:hover{
+  color: #c1121f;
+}
+.road {
+  position: absolute;
+  bottom: -75px;
+  width: 100%;
+  height: 80px;
+  border-top: 3px solid rgba(255,255,255,0.2);
+}
+
+.car {
+  position: absolute;
+  font-size: 50px;
+  bottom: -10px;
+  animation: drive 2s linear forwards;
+}
+
+@keyframes drive {
+  0% {
+    right: -80px;
+  }
+
+  25% {
+    right: 25%;
+  }
+
+  35% {
+    right: 28%;
+  }
+
+  100% {
+    right: calc(100% - 80px);
+  }
+}
+
+/* Base body styles */
+body {
+  /* System font stack - uses whatever font is on the user's device */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #0f0f1a;
+  color: #f0f0ff;
+  line-height: 1.6;
+}
+
+/* Smooth scrolling when clicking anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove underline from all links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make images not overflow their container */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f0f1a; }
+::-webkit-scrollbar-thumb { background: #e63946; border-radius: 3px; }
+
+/* ── Reusable helper classes ─────────────────── */
+
+/* Centered container with max width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Red primary button */
+.btn-red {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-red:hover , link:hover { background-color: #c1121f; }
+
+/* Outline button */
+.btn-outline {
+  background: transparent;
+  color: #f0f0ff;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  border-color: #e63946;
+  color: #e63946;
+}
+
+/* Card base */
+.card {
+  background: #16213e;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+/* Input field */
+.input {
+  width: 100%;
+  background: #16213e;
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #f0f0ff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input:focus {
+  border-color: #e63946;
+}
+.input::placeholder {
+  color: #6b7280;
+}
+
+/* Label */
+.label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+}
+
+/* Section padding */
+.section {
+  padding: 70px 0;
+}
+
+/* Section title */
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.section-title span {
+  color: #e63946;
+}
+
+/* Muted text */
+.text-muted {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* Error text */
+.error-text {
+  color: #e63946;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Success text */
+.success-text {
+  color: #2a9d8f;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Simple badge */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Page fade-in animation */
+.page {
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Simple divider */
+.divider {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 20px 0;
+}
+
+/* Responsive grid - simple two-column layout */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 640px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+
+/* Flex helpers */
+.flex { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.gap-8  { gap: 8px; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
+
+/* Margin helpers */
+.mb-8  { margin-bottom: 8px; }
+.mb-12 { margin-bottom: 12px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
